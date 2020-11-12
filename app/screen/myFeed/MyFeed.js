@@ -21,7 +21,6 @@ export default MyFeed = () => {
   const refreshing = useSelector((state) => state.CommonReducers.refreshing);
   const navigation = useNavigation()
   const [listRefresh, setListRefresh] = useState(false);
-  useSelector((state) => console.log('state', state));
   const dispatch = useDispatch();
 
   useEffect(() => {

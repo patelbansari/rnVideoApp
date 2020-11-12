@@ -85,7 +85,7 @@ const stripStack = () => {
   return (
     <StripStack.Navigator>
       <StripStack.Screen
-        name="Strip"
+        name="Test Strip"
         component={Strip}
         options={{
           headerTitleStyle: {

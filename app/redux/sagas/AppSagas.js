@@ -1,6 +1,6 @@
 import {takeLatest, put, call} from 'redux-saga/effects';
 import config from '../../config/apiConfig';
-import {FEED_SUCESS, GET_FEED, LOAD_MORE_FEED, LOAD_MORE_SUCESS, REFRESH_FEED} from '../action/Action';
+import {FEED_SUCESS, GET_FEED, GET_STRIPS, LOAD_MORE_FEED, LOAD_MORE_SUCESS, REFRESH_FEED, STRIPS_SUCESS} from '../action/Action';
 
 function* fetchFeed(action) {
   if (action.isRefresh) {
@@ -27,3 +27,16 @@ export function* getLoadMoreFeed() {
   yield takeLatest(LOAD_MORE_FEED, fetchFeed);
 }
 
+function* fetchStrips(action) {
+  if (action.isRefresh) {
+    yield put({type: REFRESH_FEED});
+  }
+  const response = yield call(fetch, config.STRIPS_URL);
+  const responseBody = yield response.json();
+  yield put({type: STRIPS_SUCESS, response: responseBody});
+
+}
+
+export function* getStripsWatcher() {
+  yield takeLatest(GET_STRIPS, fetchStrips);
+}

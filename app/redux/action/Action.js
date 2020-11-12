@@ -4,5 +4,10 @@ export const REFRESH_FEED = 'REFRESH_FEED'
 export const FEED_SUCESS = 'FEED_SUCESS'
 export const LOAD_MORE_FEED = 'LOAD_MORE_FEED';
 export const LOAD_MORE_SUCESS = 'LOAD_MORE_SUCESS';
+export const GET_STRIPS = 'GET_STRIPS';
+export const STRIPS_SUCESS = 'STRIPS_SUCESS';
+
+
+
 
 

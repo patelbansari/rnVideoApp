@@ -3,14 +3,15 @@ import {View, Text, StyleSheet} from 'react-native';
 import {ScrollView} from 'react-native';
 import colors from '../config/colors';
 
-export default HorizontalStrips = () => {
+export default HorizontalStrips = (props) => {
+    console.log('props',props)
     const renderBox = () => {
         return <View style={style.boxView}>
         <View style={style.box} />
         <Text style={style.boxCount} numberOfLines={1} ellipsizeMode='tail'>00000000</Text>
       </View>
     }
-  const renderRow = () => {
+  const renderRow = (item) => {
     return (
       <View>
         <View style={style.titleView}>
@@ -33,9 +34,12 @@ export default HorizontalStrips = () => {
   };
   return (
     <View style={style.topView}>
-      {renderRow()}
-      {renderRow()}
-      {renderRow()}
+        {
+            props?.strips?.map((item,index) => {
+                return renderRow(item)
+            })
+        }
+     
     </View>
   );
 };

@@ -13,17 +13,30 @@ import Video from 'react-native-video';
 import {useDispatch, useSelector} from 'react-redux';
 import * as CommonActions from '../../redux/action/CommonAction';
 import {TouchableOpacity} from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { showImagePickerDialog } from '../../helper/ImagePickerUtil';
 
 export default MyFeed = () => {
   const feeddata = useSelector((state) => state.CommonReducers.feed);
   const refreshing = useSelector((state) => state.CommonReducers.refreshing);
+  const navigation = useNavigation()
   const [listRefresh, setListRefresh] = useState(false);
   useSelector((state) => console.log('state', state));
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(CommonActions.getFeed(false));
+    navigation.setParams({profileImage:setProfileImage})
   }, []);
+
+  const setProfileImage = () => {
+    showImagePickerDialog().then(res => {
+      console.log(res)
+      navigation.setParams({uri:res.uri})
+    }).catch(error => {
+      console.log(error)
+    })
+  }
 
   const onRefresh = () => {
     dispatch(CommonActions.getFeed(true));

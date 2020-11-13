@@ -33,6 +33,13 @@ function* fetchStrips(action) {
   }
   const response = yield call(fetch, config.STRIPS_URL);
   const responseBody = yield response.json();
+  responseBody.map((item,index) => {
+    item.values.map((it,index) => {
+      index === 0 ? it.isSelected = true : it.isSelected = false
+      it.id = 'id' + parseInt(Date.now() * Math.random());;
+
+    })
+  })
   yield put({type: STRIPS_SUCESS, response: responseBody});
 
 }

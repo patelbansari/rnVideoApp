@@ -6,6 +6,7 @@ import {
   REFRESH_FEED,
   STRIPS_SUCESS,
   UPDATE_FEED,
+  UPDATE_STRIPS,
 } from '../action/Action';
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
   refreshing: false,
 };
 export default CommonReducers = (state = initialState, action) => {
+  console.log(action)
   switch (action.type) {
     case GET_FEED:
       return {...state, loading: true};
@@ -41,6 +43,9 @@ export default CommonReducers = (state = initialState, action) => {
       return {...state, refreshing: true};
 
     case STRIPS_SUCESS:
+      return {...state, strips: action.response};
+
+    case UPDATE_STRIPS:
       return {...state, strips: action.response};
 
     default:

@@ -1,4 +1,4 @@
-import {GET_FEED, REFRESH_FEED, UPDATE_FEED, LOAD_MORE_FEED, GET_STRIPS } from "./Action"
+import {GET_FEED, REFRESH_FEED, UPDATE_FEED, LOAD_MORE_FEED, GET_STRIPS, UPDATE_STRIPS } from "./Action"
 
 export const getFeed = (isRefresh) => {
     return { type: GET_FEED,isRefresh }
@@ -19,3 +19,7 @@ export const loadMoreFeed = (isLoadMore) => {
 export const getStrips = () => {
     return { type: GET_STRIPS }
 } 
+
+export const updateStrips = (response) => {
+    return { type: UPDATE_STRIPS,response}
+}

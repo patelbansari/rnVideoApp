@@ -55,6 +55,10 @@ const feedStack = () => {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
+          headerStyle:{
+            elevation:0,
+            shadowOpacity:0
+          },
 
           headerRight: () => (
             <TouchableOpacity
@@ -91,6 +95,10 @@ const stripStack = () => {
         options={({navigation, route}) => ({
           headerTitleStyle: {
             fontWeight: 'bold',
+          },
+          headerStyle:{
+            elevation:0,
+            shadowOpacity:0
           },
           headerRight: () => (
             <TouchableOpacity

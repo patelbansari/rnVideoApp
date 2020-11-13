@@ -16,6 +16,7 @@ export const MainTab = () => {
       tabBarOptions={{
         activeTintColor: colors.black,
         inactiveTintColor: colors.gray,
+        keyboardHidesTabBar: true,
         labelStyle: {
           fontSize: 15,
           position: 'absolute',

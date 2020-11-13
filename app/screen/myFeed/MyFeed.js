@@ -15,6 +15,8 @@ import * as CommonActions from '../../redux/action/CommonAction';
 import {TouchableOpacity} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { showImagePickerDialog } from '../../helper/ImagePickerUtil';
+import Pause from '../../assets/image/ic_m_pause.svg'
+import Play from '../../assets/image/ic_m_play.svg'
 
 export default MyFeed = () => {
   const feeddata = useSelector((state) => state.CommonReducers.feed);
@@ -71,6 +73,7 @@ export default MyFeed = () => {
         onLongPress={() => {
           onShare(item);
         }}>
+        
         <View style={style.rowView} key={item.id}>
           {item.isPaused ? (
             <Image style={style.videoView} source={{uri: item.thumbnail_url}} />
@@ -111,17 +114,10 @@ export default MyFeed = () => {
               dispatch(CommonActions.updateFeed(feeddata));
             }}>
             <View style={style.playpauseButtonView}>
-              <Image
-                source={
-                  item.isPaused
-                    ? require('../../assets/image/play.png')
-                    : require('../../assets/image/pause.png')
-                }
-                style={style.playPauseButton}
-              />
+             {  item.isPaused ? <Play /> : <Pause/> }
             </View>
           </TouchableOpacity>
-
+         
           <View style={style.detailView}>
             <View style={style.topView}>
               <Text style={style.newText}>New</Text>

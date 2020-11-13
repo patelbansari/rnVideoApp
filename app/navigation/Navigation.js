@@ -4,9 +4,9 @@ import Strip from '../screen/Strip/Strip';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import colors from '../config/colors';
-import {Image, StyleSheet, Text} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import {TouchableOpacity} from 'react-native';
-
+import IcUser from '../assets/image/ic_user.svg'
 const Tab = createBottomTabNavigator();
 const FeedStack = createStackNavigator();
 const StripStack = createStackNavigator();
@@ -61,14 +61,16 @@ const feedStack = () => {
           },
 
           headerRight: () => (
+           
             <TouchableOpacity
               onPress={() => {
                 route?.params?.profileImage();
               }}>
-              <Image
-                source={route?.params?.uri 
-                  ? {uri:route?.params?.uri}
-                  : require('../assets/image/ic_user.png')}
+                
+                {route?.params?.uri  ?  
+                <Image
+                source={{uri:route?.params?.uri}
+                 }
                 style={{
                   width: 40,
                   height: 40,
@@ -77,7 +79,10 @@ const feedStack = () => {
                   overflow: 'hidden',
                   borderWidth: 3,
                 }}
-              />
+              /> :  <View style={{height:40,width:40,marginEnd:20}}> 
+              <IcUser /> 
+              </View> }
+             
             </TouchableOpacity>
           ),
         })}

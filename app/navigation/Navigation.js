@@ -4,7 +4,7 @@ import Strip from '../screen/Strip/Strip';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createStackNavigator} from '@react-navigation/stack';
 import colors from '../config/colors';
-import {Image} from 'react-native';
+import {Image, StyleSheet, Text} from 'react-native';
 import {TouchableOpacity} from 'react-native';
 
 const Tab = createBottomTabNavigator();
@@ -88,12 +88,23 @@ const stripStack = () => {
       <StripStack.Screen
         name="Test Strip"
         component={Strip}
-        options={{
+        options={({navigation, route}) => ({
           headerTitleStyle: {
             fontWeight: 'bold',
           },
-        }}
+          headerRight: () => (
+            <TouchableOpacity
+              onPress={() => {
+                route?.params?.onNext(route?.params?.strips);
+              }}>
+              <Text style={style.next}>Next</Text>
+            </TouchableOpacity>
+          ),
+        })}
       />
     </StripStack.Navigator>
   );
 };
+const style = StyleSheet.create({
+  next:{marginEnd:20,backgroundColor:colors.lightGray,borderRadius:15,paddingHorizontal:10,paddingVertical:5,color:colors.white}
+})

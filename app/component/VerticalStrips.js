@@ -26,5 +26,5 @@ const strips = useSelector(state => state.CommonReducers.strips)
 
 const style = StyleSheet.create({
    verticalView:{width:25,borderRadius:5,borderColor:colors.lightGray,borderWidth:2,paddingBottom:30},
-   boxView:{height:20,backgroundColor:colors.black,marginTop:73,borderRadius:4}
+   boxView:{height:20,backgroundColor:colors.black,marginTop:73}
 })

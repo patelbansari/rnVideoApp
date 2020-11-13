@@ -141,7 +141,7 @@ export default MyFeed = () => {
       onEndReached={() => onEndReached()}
       refreshControl={
         <RefreshControl
-          colors={['#9Bd35A', '#689F38']}
+          colors={[colors.blue]}
           refreshing={refreshing}
           onRefresh={() => onRefresh()}
         />

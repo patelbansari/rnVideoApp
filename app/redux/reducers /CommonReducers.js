@@ -1,7 +1,8 @@
-import { act } from 'react-test-renderer';
+import {act} from 'react-test-renderer';
 import {
   FEED_SUCESS,
   GET_FEED,
+  GET_STRIPS,
   LOAD_MORE_SUCESS,
   REFRESH_FEED,
   STRIPS_SUCESS,
@@ -15,7 +16,7 @@ const initialState = {
   refreshing: false,
 };
 export default CommonReducers = (state = initialState, action) => {
-  console.log(action)
+  console.log(action);
   switch (action.type) {
     case GET_FEED:
       return {...state, loading: true};
@@ -43,7 +44,10 @@ export default CommonReducers = (state = initialState, action) => {
       return {...state, refreshing: true};
 
     case STRIPS_SUCESS:
-      return {...state, strips: action.response};
+      return {...state, strips: action.response,loading:false};
+
+    case GET_STRIPS:
+      return {...state, loading: true};
 
     case UPDATE_STRIPS:
       return {...state, strips: action.response};

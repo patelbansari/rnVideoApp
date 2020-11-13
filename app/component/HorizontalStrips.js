@@ -33,7 +33,8 @@ export default HorizontalStrips = () => {
         dispatch(CommonActions.updateStrips(stripsItem))
       }}>
       <View style={style.boxView}>
-        <View style={[style.box,{backgroundColor:item.color,borderWidth:item.isSelected && isKeyboardOpen ? 2 : 0,borderColor:item.isSelected && isKeyboardOpen ? colors.green : null}]} />
+        <View style={[style.box,{backgroundColor:item.color,borderWidth:item.isSelected && isKeyboardOpen ? 2 : 0
+          ,borderColor:item.isSelected && isKeyboardOpen ? colors.green : null}]} />
         <Text style={style.boxCount} numberOfLines={1} ellipsizeMode="tail">
           {item.value}
         </Text>
